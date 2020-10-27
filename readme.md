@@ -57,5 +57,3 @@ Character styles:
   
 Table style:
 * Table
-
-Add line for Dale
