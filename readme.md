@@ -17,43 +17,43 @@ To produce a custom reference.docx, first get a copy of the default reference.do
 
 Paragraph styles:
 
-Normal
-Body Text
-First Paragraph
-Compact
-Title
-Subtitle
-Author
-Date
-Abstract
-Bibliography
-Heading 1
-Heading 2
-Heading 3
-Heading 4
-Heading 5
-Heading 6
-Heading 7
-Heading 8
-Heading 9
-Block Text
-Footnote Text
-Definition Term
-Definition
-Caption
-Table Caption
-Image Caption
-Figure
-Captioned Figure
-TOC Heading
+* Normal
+* Body Text
+* First Paragraph
+* Compact
+* Title
+* Subtitle
+* Author
+* Date
+* Abstract
+* Bibliography
+* Heading 1
+* Heading 2
+* Heading 3
+* Heading 4
+* Heading 5
+* Heading 6
+* Heading 7
+* Heading 8
+* Heading 9
+* Block Text
+* Footnote Text
+* Definition Term
+* Definition
+* Caption
+* Table Caption
+* Image Caption
+* Figure
+* Captioned Figure
+* TOC Heading
+
 Character styles:
-
-Default Paragraph Font
-Body Text Char
-Verbatim Char
-Footnote Reference
-Hyperlink
-Section Number
+* Default Paragraph Font
+* Body Text Char
+* Verbatim Char
+* Footnote Reference
+* Hyperlink
+* Section Number
+  
 Table style:
-
-Table
+* Table
