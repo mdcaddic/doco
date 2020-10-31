@@ -7,7 +7,9 @@ jobs:
     name: Convert via Pandoc
     runs-on: ubuntu-18.04
     steps:
+      - id: step1
+        run: echo env:GITHUB_WORKSPACE
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=index.html readme.md"
+          args: "--standalone --output=blueprint.docx readme.md"
 #          args: "-o /github/workspace/blueprint.docx /github/workspace/title.txt"
