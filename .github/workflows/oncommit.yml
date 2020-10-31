@@ -4,8 +4,10 @@ on: push
 
 jobs:
   convert_via_pandoc:
+    name: Convert via Pandoc
     runs-on: ubuntu-18.04
     steps:
       - uses: docker://pandoc/core:2.9
         with:
-          args: "-o /github/workspace/blueprint.docx /github/workspace/title.txt"
+          args: "--standalone --output=index.html title.txt"
+#          args: "-o /github/workspace/blueprint.docx /github/workspace/title.txt"
