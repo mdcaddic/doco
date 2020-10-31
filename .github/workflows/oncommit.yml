@@ -11,7 +11,7 @@ jobs:
         run: echo /$GITHUB_REPOSITORY
       - uses: docker://pandoc/core:2.9
         with:
-          args: |>
+          args: |
             --standalone
             --output /$GITHUB_REPOSITORY/sections/blueprint.docx
             /$GITHUB_REPOSITORY/sections/title.txt
