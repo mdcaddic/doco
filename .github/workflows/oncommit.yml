@@ -16,7 +16,7 @@ jobs:
           # echo env.FILELIST
       - uses: docker://pandoc/latex:2.9
         with:
-          args: --standalone --output=output/result.pdf input.txt
+          args: "--standalone --output=output/result.pdf input.txt"
         - uses: actions/upload-artifact@master
           with:
             name: output
