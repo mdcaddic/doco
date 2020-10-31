@@ -17,8 +17,8 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone -o output/result.docx input.txt"
-        - uses: actions/upload-artifact@master
-          with:
-            name: output
-            path: output
+      - uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output
 
