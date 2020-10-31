@@ -7,8 +7,8 @@ jobs:
     name: Convert via Pandoc
     runs-on: ubuntu-18.04
     steps:
-      - id: step1
-        run: echo $GITHUB_REPOSITORY
+      # - id: step1
+      #   run: echo $GITHUB_REPOSITORY
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=/$GITHUB_REPOSITORY/setions/blueprint.docx /$GITHUB_REPOSITORY/sections/title.txt"
+          args: "--standalone --output /$GITHUB_REPOSITORY/setions/blueprint.docx /$GITHUB_REPOSITORY/sections/title.txt"
