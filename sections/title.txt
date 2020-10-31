@@ -1,0 +1,6 @@
+---
+title: oobe Blueprint
+author: Martin Caddick
+rights:  Commercial in Confidence
+language: en-US
+...
