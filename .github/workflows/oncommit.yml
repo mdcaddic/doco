@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - id: step1
-        run: echo env:GITHUB_WORKSPACE
+        run: echo env:GITHUB_REPOSITORY
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone --output=blueprint.docx readme.md"
