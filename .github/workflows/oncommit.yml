@@ -12,7 +12,7 @@ jobs:
       # - run: echo "foo" > input.txt
       
         echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
-        echo env.FILELIST
+        # echo env.FILELIST
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone -o output/result.docx env.FILELIST"
