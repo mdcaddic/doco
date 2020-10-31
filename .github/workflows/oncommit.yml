@@ -12,7 +12,7 @@ jobs:
               echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone -o output/result.docx env.FILELIST"
+          args: "--standalone -o output/result.docx title.txt"
       - uses: actions/upload-artifact@master
         with:
           name: output
