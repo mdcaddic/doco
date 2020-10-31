@@ -7,11 +7,15 @@ jobs:
     name: Convert via Pandoc
     runs-on: ubuntu-18.04
     steps:
-      - id: step1
-        run: echo /$GITHUB_REPOSITORY
-      - uses: docker://pandoc/core:2.9
+      - uses: actions/checkout@v2
+        run: 
+          mkdir output
+          echo "::set-env name=FILELIST::$(printf '"%s" ' *.md)"
+      - uses: docker://pandoc/latex:2.9
         with:
-          args: |
-            --standalone
-            --output /$GITHUB_REPOSITORY/sections/blueprint.docx
-            /$GITHUB_REPOSITORY/sections/title.txt
+          args: --output=output/result.pdf ${{ env.FILELIST }}
+        - uses: actions/upload-artifact@master
+          with:
+            name: output
+            path: output
+            
