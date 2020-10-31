@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: docker://pandoc/core:2.9
         with:
-          args: "-o ./blueprint.docx ./title.txt"
+          args: "-o GITHUB_WORKSPACE/blueprint.docx GITHUB_WORKSPACE/title.txt"
