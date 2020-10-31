@@ -11,5 +11,5 @@ jobs:
         run: echo env:GITHUB_REPOSITORY
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=blueprint.docx readme.md"
+          args: "--standalone --output=GITHUB_REPOSITORY/blueprint.docx GITHUB_REPOSITORY/readme.md"
 #          args: "-o /github/workspace/blueprint.docx /github/workspace/title.txt"
