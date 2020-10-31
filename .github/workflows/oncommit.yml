@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: 
-          mkdir output
+          # mkdir output
           echo "::set-env name=FILELIST::$(printf '"%s" ' *.md)"
           echo env.FILELIST
       # - uses: docker://pandoc/latex:2.9
