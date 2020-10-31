@@ -12,11 +12,11 @@ jobs:
           mkdir output
           echo "::set-env name=FILELIST::$(printf '"%s" ' *.md)"
           echo env.FILELIST
-      - uses: docker://pandoc/latex:2.9
-        with:
-          # args: --output output/result.pdf ${{ env.FILELIST }}
-        - uses: actions/upload-artifact@master
-          with:
-            name: output
-            path: output
+      # - uses: docker://pandoc/latex:2.9
+      #   with:
+      #     # args: --output output/result.pdf ${{ env.FILELIST }}
+      #   - uses: actions/upload-artifact@master
+      #     with:
+      #       name: output
+      #       path: output
 
