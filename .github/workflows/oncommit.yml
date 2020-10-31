@@ -9,14 +9,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir output
-      - run: echo "foo" > input.txt
+      # - run: echo "foo" > input.txt
       
-          #       echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
-
-          # echo env.FILELIST
+        echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
+        echo env.FILELIST
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone -o output/result.docx input.txt"
+          args: "--standalone -o output/result.docx env.FILELIST"
       - uses: actions/upload-artifact@master
         with:
           name: output
