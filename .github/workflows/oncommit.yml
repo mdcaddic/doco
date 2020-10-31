@@ -8,15 +8,17 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: 
-          # mkdir output
-          echo "::set-env name=FILELIST::$(printf '"%s" ' *.md)"
-          echo env.FILELIST
-      # - uses: docker://pandoc/latex:2.9
-      #   with:
-      #     # args: --output output/result.pdf ${{ env.FILELIST }}
-      #   - uses: actions/upload-artifact@master
-      #     with:
-      #       name: output
-      #       path: output
+      - run: mkdir output
+      - run: echo "foo" > input.txt
+      
+          #       echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
+
+          # echo env.FILELIST
+      - uses: docker://pandoc/latex:2.9
+        with:
+          args: --standalone --output=output/result.pdf input.txt
+        - uses: actions/upload-artifact@master
+          with:
+            name: output
+            path: output
 
