@@ -1,0 +1,10 @@
+Consolidate alls section into a single markdown file
+
+type 11.IdentityAndAccessManagement.md >> Platform.md
+type 12.Security.md >> Platform.md
+type 13.ClientConfiguration.md >> Platform.md
+type 14.BackupAndOperationalManagement.md >> Platform.md
+type 15.SystemAdministrator.md >> Platform.md
+type 15.RBAC.md >> Platform.md
+
+pandoc -f markdown -s Platform.md -o Platform.docx --reference-docx=DTATemplate.docx
