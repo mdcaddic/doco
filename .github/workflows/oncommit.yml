@@ -12,6 +12,7 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone \
+          --toc \
           --output=oobeBlueprint.docx \
           --reference-doc=templates/oobeTemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
@@ -24,6 +25,7 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone \
+          --toc \
           --output=DTABlueprint.docx \
           --reference-doc=templates/DTATemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
