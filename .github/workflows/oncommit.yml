@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      # - run: mkdir output
       # make an oobe version
       - uses: docker://pandoc/core:2.9
         with:
@@ -27,6 +26,11 @@ jobs:
           args: "--standalone \
           --output=DTABlueprint.docx \
           --reference-doc=templates/DTATemplate.docx 
+          sections/11.IdentityAndAccessManagement.md \
+          sections/12.Security.md \
+          sections/13.ClientConfiguration.md \
+          sections/14.BackupAndOperationalManagement.md \
+          sections/15.SystemAdministration.md \
           sections/16.RBAC.md"
       - name: setup git config username
         run: |
