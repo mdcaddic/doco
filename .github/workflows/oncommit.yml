@@ -13,10 +13,10 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone --output=output/oobeBlueprint.docx --reference-doc=oobeTemplate.docx sections/title.txt"
-      # # make a DTA version
+      # make a DTA version
       # - uses: docker://pandoc/core:2.9
-      #   with:
-      #     args: "--standalone --output=output/DTABlueprint.docx --reference-doc=templates/DTATemplate.docx sections/title.txt"
+        with:
+          args: "--standalone --output=output/DTABlueprint.docx --reference-doc=templates/DTATemplate.docx sections/title.txt"
       - name: setup git config username
         run: |
           git config user.name "GitHub Actions Bot"
