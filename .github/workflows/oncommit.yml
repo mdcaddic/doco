@@ -12,8 +12,12 @@ jobs:
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone --output=output/result.docx sections/title.txt"
-      - uses: actions/upload-artifact@master
-        with:
-          name: output
-          path: output
+        uses: canastro/copy-file-action@master
+          with:
+            source: "output/result.docx"
+            target: "result.docx" 
+      # - uses: actions/upload-artifact@master
+      #   with:
+      #     name: output
+      #     path: output
 
