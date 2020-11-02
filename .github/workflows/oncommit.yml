@@ -32,7 +32,11 @@ jobs:
           sections/14.BackupAndOperationalManagement.md \
           sections/15.SystemAdministration.md \
           sections/16.RBAC.md"
-      # make the pdf version
+  converttopdf: # make the pdf version
+    name: Build PDF
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkoutv2
       - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone \
