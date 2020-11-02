@@ -9,13 +9,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: mkdir output
-              echo "name=FILELIST::$(printf '"%s" ' *.md)" >> GITHUB_ENV
       - uses: docker://pandoc/core:2.9
         with:
-          args: > 
-          --standalone
-          -o output/result.docx 
-          title.txt
+          args: "--standalone --output=output/result.docx readme.md"
       - uses: actions/upload-artifact@master
         with:
           name: output
