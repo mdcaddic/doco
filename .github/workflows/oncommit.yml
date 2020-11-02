@@ -25,10 +25,10 @@ jobs:
       - name: setup git config username
         run: |
           git config user.name "GitHub Actions Bot"
-          git config user.email "me@here.com"
+          git config user.email "<>"
 
       - name: commit
         run: |
           git add output/result.docx
           git commit -m "New version of output document"
-          git push origin master
+          git push origin main
