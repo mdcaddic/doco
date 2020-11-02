@@ -32,21 +32,21 @@ jobs:
           sections/14.BackupAndOperationalManagement.md \
           sections/15.SystemAdministration.md \
           sections/16.RBAC.md"
-  converttopdf: # make the pdf version
-    name: Build PDF
-    runs-on: ubuntu-18.04
-    steps:
-      - uses: actions/checkoutv2
-      - uses: docker://pandoc/core:2.9
-        with:
-          args: "--standalone \
-          --output=DTABlueprint.pdf \
-          sections/11.IdentityAndAccessManagement.md \
-          sections/12.Security.md \
-          sections/13.ClientConfiguration.md \
-          sections/14.BackupAndOperationalManagement.md \
-          sections/15.SystemAdministration.md \
-          sections/16.RBAC.md"          
+  # converttopdf: # make the pdf version
+  #   name: Build PDF
+  #   runs-on: ubuntu-18.04
+  #   steps:
+  #     - uses: actions/checkoutv2
+  #     - uses: docker://pandoc/core:2.9
+  #       with:
+  #         args: "--standalone \
+  #         --output=DTABlueprint.pdf \
+  #         sections/11.IdentityAndAccessManagement.md \
+  #         sections/12.Security.md \
+  #         sections/13.ClientConfiguration.md \
+  #         sections/14.BackupAndOperationalManagement.md \
+  #         sections/15.SystemAdministration.md \
+  #         sections/16.RBAC.md"          
       - name: setup git config username
         run: |
           git config user.name "GitHub Actions Bot"
