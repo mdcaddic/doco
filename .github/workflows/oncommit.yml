@@ -15,7 +15,11 @@ jobs:
           args: "--standalone --output=oobeBlueprint.docx \
           --reference-doc=templates/oobeTemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
-          sections/12.Security.md"
+          sections/12.Security.md \
+          sections/13.ClientConfiguration.md \
+          sections/14.BackupAndOperationalManagement.md \
+          sections/15.SystemAdministration.md \
+          sections/16.RBAC.md"
       # # make a DTA version
       # - uses: docker://pandoc/core:2.9
       #   with:
