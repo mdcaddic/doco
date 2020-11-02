@@ -32,7 +32,8 @@ jobs:
           sections/14.BackupAndOperationalManagement.md \
           sections/15.SystemAdministration.md \
           sections/16.RBAC.md"
-      -uses: docker://pandoc/core:2.9
+      # make the pdf version
+      - uses: docker://pandoc/core:2.9
         with:
           args: "--standalone \
           --output=DTABlueprint.pdf \
