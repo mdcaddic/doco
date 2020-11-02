@@ -8,15 +8,15 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir output
+      # - run: mkdir output
       # make an oobe version
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=output/oobeBlueprint.docx --reference-doc=oobeTemplate.docx sections/title.txt"
-      # make a DTA version
-      - uses: docker://pandoc/core:2.9
-        with:
-          args: "--standalone --output=output/DTABlueprint.docx --reference-doc=templates/DTATemplate.docx sections/title.txt"
+          args: "--standalone --output=oobeBlueprint.docx --reference-doc=oobeTemplate.docx sections/title.txt"
+      # # make a DTA version
+      # - uses: docker://pandoc/core:2.9
+      #   with:
+      #     args: "--standalone --output=output/DTABlueprint.docx --reference-doc=templates/DTATemplate.docx sections/title.txt"
       - name: setup git config username
         run: |
           git config user.name "GitHub Actions Bot"
