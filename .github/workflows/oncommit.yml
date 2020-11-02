@@ -25,7 +25,7 @@ jobs:
         with:
           args: "--standalone \
           --output=DTABlueprint.docx \
-          --reference-doc=templates/DTATemplate.docx 
+          --reference-doc=templates/DTATemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
           sections/12.Security.md \
           sections/13.ClientConfiguration.md \
@@ -37,7 +37,6 @@ jobs:
         with:
           args: "--standalone \
           --output=DTABlueprint.pdf \
-          --reference-doc=templates/DTATemplate.docx 
           sections/11.IdentityAndAccessManagement.md \
           sections/12.Security.md \
           sections/13.ClientConfiguration.md \
