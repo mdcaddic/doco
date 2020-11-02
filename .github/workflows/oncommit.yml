@@ -11,7 +11,7 @@ jobs:
       - run: mkdir output
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=output/result.docx readme.md"
+          args: "--standalone --output=output/result.docx sections/title.txt"
       - uses: actions/upload-artifact@master
         with:
           name: output
