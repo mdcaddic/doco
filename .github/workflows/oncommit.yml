@@ -14,7 +14,7 @@ jobs:
           args: "--standalone --output=output/result.docx sections/title.txt"
       - uses: actions/checkout@master
       - name: Copy File
-        uses: canastro/copy-file-action@master
+      - uses: canastro/copy-file-action@master
           with:
             source: "output/result.docx"
             target: "result.docx" 
