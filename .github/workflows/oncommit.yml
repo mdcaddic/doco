@@ -12,7 +12,8 @@ jobs:
       # make an oobe version
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=oobeBlueprint.docx \
+          args: "--standalone \
+          --output=oobeBlueprint.docx \
           --reference-doc=templates/oobeTemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
           sections/12.Security.md \
@@ -20,10 +21,13 @@ jobs:
           sections/14.BackupAndOperationalManagement.md \
           sections/15.SystemAdministration.md \
           sections/16.RBAC.md"
-      # # make a DTA version
-      # - uses: docker://pandoc/core:2.9
-      #   with:
-      #     args: "--standalone --output=output/DTABlueprint.docx --reference-doc=templates/DTATemplate.docx sections/title.txt"
+      # make a DTA version
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: "--standalone \
+          --output=DTABlueprint.docx \
+          --reference-doc=templates/DTATemplate.docx 
+          sections/16.RBAC.md"
       - name: setup git config username
         run: |
           git config user.name "GitHub Actions Bot"
