@@ -12,7 +12,7 @@ jobs:
       # make an oobe version
       - uses: docker://pandoc/core:2.9
         with:
-          args: "--standalone --output=output/oobeBlueprint.docx --reference-doc=templates/oobeTemplate.docx sections/title.txt"
+          args: "--standalone --output=output/oobeBlueprint.docx --reference-doc=oobeTemplate.docx sections/title.txt"
       # make a DTA version
       - uses: docker://pandoc/core:2.9
         with:
