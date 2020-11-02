@@ -22,8 +22,9 @@ jobs:
       #   with:
       #     name: output
       #     path: output
-      - name: setup git config
+      - name: setup git config username
         run: git config user.name "GitHub Actions Bot"
+      - name : setup git config useremail
         run: git config user.email "me@here.com"
 
       # -name: commit
