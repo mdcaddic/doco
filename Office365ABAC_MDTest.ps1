@@ -25,7 +25,7 @@ Function ConvertTo-MDTest {
             #initialize an empty here string for markdown text
             $Text = @"
     
-    "@
+"@
             If ($title) {
                 Write-Verbose "[BEGIN  ] Adding Title: $Title"
                 $Text += "# $Title`n`n"
@@ -90,7 +90,7 @@ Function ConvertTo-MDTest {
                     $text += @"
     ``````text
     $clean
-    "@
+"@
             } #else as text
         } #if $data
         If ($postcontent) {
@@ -9367,7 +9367,7 @@ $AssociatedDocumentationDetail = [ordered]@{
 $AssociatedDocumentationDetailObject = New-Object -TypeName psobject -Property $AssociatedDocumentationDetail
 $AssociatedDocumentationArray += $AssociatedDocumentationDetailObject
 
-$AssociatedDocumentationArray | ConvertTo-MDTest -tabletitle "Associated Documentation" -AsTable | Add-Content -path $ReportFileName
+$AssociatedDocumentationArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 
 #############################################
 #Document - Configuration
@@ -9391,7 +9391,7 @@ $GUCount = $($InboundMailConnectorsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "Exchange Online contains the following inbound mail connectors."
     $MailConnectorsArray = $InboundMailConnectorsArray |Select-Object "Name","Status","TLS","Certificate"
-    $MailConnectorsArray | ConvertTo-MDTest -tabletitle "Inbound Mail Connector Configuration" -AsTable | Add-Content -path $ReportFileName
+    $MailConnectorsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no inbound mail connectors configured in Exchange Online."
@@ -9418,7 +9418,7 @@ Add-Content -path $ReportFileName -value "### MX Records"
 $GUCount = $($MXrecordsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following MX records have been configured."
-    $MXrecordsArray | ConvertTo-MDTest -tabletitle "MX Configuration" -AsTable | Add-Content -path $ReportFileName
+    $MXrecordsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no MX records configured"
@@ -9433,7 +9433,7 @@ Add-Content -path $ReportFileName -value "### SPF Records"
 $GUCount = $($SPFrecordsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following SPF records have been configured."
-    $SPFrecordsArray | ConvertTo-MDTest -tabletitle "SPF Configuration" -AsTable | Add-Content -path $ReportFileName
+    $SPFrecordsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no SPF records configured"
@@ -9448,7 +9448,7 @@ Add-Content -path $ReportFileName -value "### Remote Domains"
 $GUCount = $($RemoteDomainsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Remote Domains have been configured."
-    $RemoteDomainsArray | ConvertTo-MDTest -tabletitle "Remote Domain Configuration" -AsTable | Add-Content -path $ReportFileName
+    $RemoteDomainsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Remote Domains records configured"
@@ -9463,7 +9463,7 @@ Add-Content -path $ReportFileName -value "### CAS Mailbox Plan"
 $GUCount = $($CASMailboxPlanArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following CAS Mailbox Plans have been configured."
-    $CASMailboxPlanArray | ConvertTo-MDTest -tabletitle "CAS Mailbox Plan Configuration" -AsTable | Add-Content -path $ReportFileName
+    $CASMailboxPlanArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Remote Domains records configured"
@@ -9479,7 +9479,7 @@ Add-Content -path $ReportFileName -value "### Authentication Policy"
 $GUCount = $($EOAuthenticationPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Authentication Policies have been configured."
-    $EOAuthenticationPolicyArray | ConvertTo-MDTest -tabletitle "Authentication Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOAuthenticationPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Authentication Policies configured"
@@ -9494,7 +9494,7 @@ Add-Content -path $ReportFileName -value "### Outlook Web Access Policy"
 $GUCount = $($OWAMailboxPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Outlook Web Access Policies have been configured."
-    $OWAMailboxPolicyArray | ConvertTo-MDTest -tabletitle "Outlook Web Access Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $OWAMailboxPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Outlook Web Access Policies configured"
@@ -9509,7 +9509,7 @@ Add-Content -path $ReportFileName -value "### Address Lists"
 $GUCount = $($EOAddressListsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Address Lists have been configured."
-    $EOAddressListsArray | ConvertTo-MDTest -tabletitle "Address List Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOAddressListsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Address Lists configured"
@@ -9531,7 +9531,7 @@ Add-Content -path $ReportFileName -value "### Connection Filtering"
 $GUCount = $($EOPConnectionFilterArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Connection Filters have been configured."
-    $EOPConnectionFilterArray | ConvertTo-MDTest -tabletitle "Connection Filters Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOPConnectionFilterArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Connection Filters configured"
@@ -9546,7 +9546,7 @@ Add-Content -path $ReportFileName -value "### Anti-Malware"
 $GUCount = $($EOPMalwareFilterArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Malware Filters have been configured."
-    $EOPMalwareFilterArray | ConvertTo-MDTest -tabletitle "Malware Filter Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOPMalwareFilterArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Malware Filters configured"
@@ -9561,7 +9561,7 @@ Add-Content -path $ReportFileName -value "### Policy Filtering"
 $GUCount = $($EOPPolicyFilterArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Policy Filters have been configured."
-    $EOPPolicyFilterArray | ConvertTo-MDTest -tabletitle "Policy Filter Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOPPolicyFilterArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Policy Filters configured"
@@ -9576,7 +9576,7 @@ Add-Content -path $ReportFileName -value "### Content Filtering"
 $GUCount = $($EOPContentFilterArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following Content Filters have been configured."
-    $EOPContentFilterArray | ConvertTo-MDTest -tabletitle "Content Filter Configuration" -AsTable | Add-Content -path $ReportFileName
+    $EOPContentFilterArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Content Filters configured"
@@ -9598,7 +9598,7 @@ Add-Content -path $ReportFileName -value "### Client Configuration"
 $GUCount = $($TeamsClientConfigArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams client configuration."
-    $TeamsClientConfigArray | ConvertTo-MDTest -tabletitle "Client Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsClientConfigArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams client configurations have been made."
@@ -9613,7 +9613,7 @@ Add-Content -path $ReportFileName -value "### Channel Policy"
 $GUCount = $($TeamsChannelPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams Channel Policy configuration."
-    $TeamsChannelPolicyArray | ConvertTo-MDTest -tabletitle "Channel Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsChannelPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams Channel Policy configurations."
@@ -9628,7 +9628,7 @@ Add-Content -path $ReportFileName -value "### Calling Policy"
 $GUCount = $($TeamsCallingPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams Calling Policy configuration."
-    $TeamsCallingPolicyArray | ConvertTo-MDTest -tabletitle "Calling Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsCallingPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams Calling Policy configurations."
@@ -9643,7 +9643,7 @@ Add-Content -path $ReportFileName -value "### Meeting Policy"
 $GUCount = $($TeamsMeetingPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams Meeting Policy configuration."
-    $TeamsMeetingPolicyArray | ConvertTo-MDTest -tabletitle "Meeting Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsMeetingPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams Meeting Policy configurations."
@@ -9658,7 +9658,7 @@ Add-Content -path $ReportFileName -value "### Messaging Policy"
 $GUCount = $($TeamsMessagingPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams Messaging Policy configuration."
-    $TeamsMessagingPolicyArray | ConvertTo-MDTest -tabletitle "Messaging Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsMessagingPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams Messaging Policy configurations."
@@ -9673,7 +9673,7 @@ Add-Content -path $ReportFileName -value "### Meeting Broadcast Policy"
 $GUCount = $($TeamsMeetingBroadcastPolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following is the Teams Meeting Broadcast Policy configuration."
-    $TeamsMeetingBroadcastPolicyArray | ConvertTo-MDTest -tabletitle "Meeting Broadcast Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $TeamsMeetingBroadcastPolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Teams Meeting Broadcast Policy configurations."
@@ -9695,7 +9695,7 @@ Add-Content -path $ReportFileName -value "### Tenant Configuration"
 $GUCount = $($SharepointArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the SharePoint Online Tenant configuration."
-    $SharepointArray | ConvertTo-MDTest -tabletitle "Tenant Configuration" -AsTable | Add-Content -path $ReportFileName
+    $SharepointArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Content Filters configured"
@@ -9717,7 +9717,7 @@ Add-Content -path $ReportFileName -value "### Retention Labels"
 $GUCount = $($RetentionLabelArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the Retention Labels configuration."
-    $RetentionLabelArray | ConvertTo-MDTest -tabletitle "Retention Labels Configuration" -AsTable | Add-Content -path $ReportFileName
+    $RetentionLabelArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There are no Retention Labels configured"
@@ -9732,7 +9732,7 @@ Add-Content -path $ReportFileName -value "### Retention Label Policy"
 $GUCount = $($RetentionpolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the Retention Label Policy configuration."
-    $RetentionpolicyArray | ConvertTo-MDTest -tabletitle "Retention Label Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $RetentionpolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There is no Retention Label Policy configured"
@@ -9747,7 +9747,7 @@ Add-Content -path $ReportFileName -value "### Sensitivity labels"
 $GUCount = $($SensitivityLabelsArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the Sensitivity Label configuration."
-    $SensitivityLabelsArray | ConvertTo-MDTest -tabletitle "Sensitivity Label Configuration" -AsTable | Add-Content -path $ReportFileName
+    $SensitivityLabelsArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There is no Sensitivity Label configured"
@@ -9762,7 +9762,7 @@ Add-Content -path $ReportFileName -value "### Sensitivity label Policy"
 $GUCount = $($SensitivitylabelpolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the Sensitivity label Policy configuration."
-    $SensitivitylabelpolicyArray | ConvertTo-MDTest -tabletitle "Sensitivity label Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $SensitivitylabelpolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There is no Sensitivity label Policy configured"
@@ -9776,7 +9776,7 @@ Add-Content -path $ReportFileName -value "### Dlp Compliance Policy"
 $GUCount = $($DlpCompliancePolicyArray | Measure-Object).Count
 If ($GUCount -gt 0) {
     Add-Content -path $ReportFileName -value "The following table lists the Dlp Compliance Policy configuration."
-    $DlpCompliancePolicyArray | ConvertTo-MDTest -tabletitle "Dlp Compliance Policy Configuration" -AsTable | Add-Content -path $ReportFileName
+    $DlpCompliancePolicyArray | ConvertTo-MDTest -AsTable | Add-Content -path $ReportFileName
 }
 else {
     Add-Content -path $ReportFileName -value "There is no Dlp Compliance Policy configured"

@@ -9,6 +9,7 @@ Function ConvertTo-MDTest {
             [object]$Inputobject,
             [Parameter()]
             [string]$Title,
+            [string]$TableTitle,
             [string[]]$PreContent,
             [string[]]$PostContent,
             [ValidateScript( {$_ -ge 10})]
@@ -25,7 +26,7 @@ Function ConvertTo-MDTest {
             #initialize an empty here string for markdown text
             $Text = @"
     
-    "@
+"@
             If ($title) {
                 Write-Verbose "[BEGIN  ] Adding Title: $Title"
                 $Text += "# $Title`n`n"
@@ -35,7 +36,11 @@ Function ConvertTo-MDTest {
                 $Text += $precontent
                 $text += "`n`n"
             }
-    
+            If ($TableTitle) {
+                Write-Verbose "[BEGIN  ] Adding Table Title: $TableTitle"
+                $Text += $TableTitle
+                $text += "`n`n"
+            }    
         } #begin
         Process {
             #add incoming objects to data array
@@ -90,7 +95,7 @@ Function ConvertTo-MDTest {
                     $text += @"
     ``````text
     $clean
-    "@
+"@
             } #else as text
         } #if $data
         If ($postcontent) {
