@@ -13,7 +13,7 @@ jobs:
         with:
           args: "--standalone \
           --toc \
-          --output=oobeBlueprint.docx \
+          --output=complete_documents/oobeBlueprint.docx \
           --reference-doc=templates/oobeTemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
           sections/12.Security.md \
@@ -26,7 +26,7 @@ jobs:
         with:
           args: "--standalone \
           --toc \
-          --output=DTABlueprint.docx \
+          --output=complete_documents/DTABlueprint.docx \
           --reference-doc=templates/DTATemplate.docx \
           sections/11.IdentityAndAccessManagement.md \
           sections/12.Security.md \
