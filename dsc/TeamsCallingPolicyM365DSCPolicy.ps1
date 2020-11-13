@@ -1,12 +1,38 @@
-TeamsCallingPolicy M365DSCPolicy
+Configuration M365
 {
-    AllowCallForwardingToPhone = $True; ### L2|We <strong>recommend</strong> allowing call forwarding to phone lines because...
-    AllowCallForwardingToUser  = $True; ### L3|Information about <a href="https://docs.microsoft.com/en-us/MicrosoftTeams/teams-calling-policy">call forwarding</a>
-    AllowPrivateCalling        = $false; ### L1|<img src='warning.png' />We don't recommend allowing people to allow private calls due to....
-    AllowVoicemail             = "UserOverride";
-    BusyOnBusyEnabledType      = "Disabled";
-    Identity                   = "Microsoft365DSC Policy";
-    PreventTollBypass          = $True;
-    Ensure                     = "Present";
-    GlobalAdminAccount         = $GlobalAdminAccount
+    Import-DscResource -ModuleName Microsoft365DSC
+    $password = ConvertTo-SecureString "Hol48620" -AsPlainText -Force
+    $GlobalAdmin = New-Object System.Management.Automation.PSCredential ('ga@oobedta.onmicrosoft.com',$password)
+
+    
+    Node localhost
+    {
+        #region Teams
+        TeamsTeam DevOPS
+        {
+            DisplayName        = "DevOPS Demo"
+            Description        = "This is me demoing the Teams Resource"
+            GlobalAdminAccount = $GlobalAdmin
+            Ensure             = "Present"
+        }
+        TeamsChannel DSCChannel
+        {
+            TeamName           = "DevOPS Demo"
+            DisplayName        = "DSC Discussions"
+            GlobalAdminAccount = $GlobalAdmin
+            Ensure             = "Present"
+        }
+        #endregion
+    }
 }
+$ConfigData = @{
+    AllNodes = @(
+        @{
+        NodeName = "localhost"
+        PsDSCAllowPlainTextPassword = $true
+        PSDscAllowDomainUser = $true
+        }
+    )
+}
+M365 -ConfigurationData $ConfigData
+Start-DscConfiguration M365 -Wait -Force -Verbose
