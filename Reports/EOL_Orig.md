@@ -35,10 +35,7 @@ The following MX records have been configured.
 
 | Domain | MX Preference | Mail Exchanger |
 | ------ | ------------- | -------------- |
-| precisionservices.biz | MX preference = 0 | mail exchanger = precisionservices-biz.mail.protection.outlook.com
-
-
- |
+| precisionservices.biz | 0 | precisionservices-biz.mail.protection.outlook.com |
 
 ### SPF Records
 The following SPF records have been configured.
