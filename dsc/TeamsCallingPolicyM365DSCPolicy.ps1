@@ -1,12 +1,31 @@
-TeamsCallingPolicy M365DSCPolicy
+<#
+This example adds a new Teams Calling Policy.
+#>
+
+Configuration Example
 {
-    AllowCallForwardingToPhone = $True; ### L2|We <strong>recommend</strong> allowing call forwarding to phone lines because...
-    AllowCallForwardingToUser  = $True; ### L3|Information about <a href="https://docs.microsoft.com/en-us/MicrosoftTeams/teams-calling-policy">call forwarding</a>
-    AllowPrivateCalling        = $false; ### L1|<img src='warning.png' />We don't recommend allowing people to allow private calls due to....
-    AllowVoicemail             = "UserOverride";
-    BusyOnBusyEnabledType      = "Disabled";
-    Identity                   = "Microsoft365DSC Policy";
-    PreventTollBypass          = $True;
-    Ensure                     = "Present";
-    GlobalAdminAccount         = $GlobalAdminAccount
+    param(
+        [Parameter(Mandatory = $true)]
+        [PSCredential]
+        $credsGlobalAdmin
+    )
+    Import-DscResource -ModuleName Microsoft365DSC
+
+    node localhost
+    {
+        TeamsCallingPolicy CallingPolicy
+        {
+            Identity                   = 'New Calling Policy'
+            AllowPrivateCalling        = $false
+            AllowVoicemail             = 'UserOverride'
+            AllowCallGroups            = $true
+            AllowDelegation            = $true
+            AllowCallForwardingToUser  = $false
+            AllowCallForwardingToPhone = $true
+            PreventTollBypass          = $true
+            BusyOnBusyEnabledType      = 'Enabled'
+            Ensure                     = 'Present'
+            GlobalAdminAccount         = $credsGlobalAdmin
+        }
+    }
 }
