@@ -14,6 +14,5 @@ git commit -m "first commit"
 
 git branch -M main
 
-git remote add origin https://github.com/mdcaddic/freqtrade.git
-
+git remote add origin https://github.com/mdcaddic/<gitfile>.git
 git push -u origin main
